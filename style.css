@@ -1,0 +1,146 @@
+body {
+    background: linear-gradient(90deg, #71abed, #f7c1bb, #fbdfaf);
+    margin: 0; /* Reset default margin */
+    font-family: 'Cabin', sans-serif;
+}
+
+header {
+    background: linear-gradient(90deg, #71abed, #f7c1bb, #fbdfaf);
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Vertically center items within the header */
+    padding: 10px; /* Add padding to give space around the navigation */
+    position: sticky; /* Make header sticky */
+    top: 0; /* Stick to the top of the viewport */
+    z-index: 1000; /* Ensure header is above all content */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Make the navigation items horizontal */
+}
+
+nav li {
+    font-family: 'Cabin', sans-serif;
+    margin-right: 60px; /* Adjust spacing between navigation items */
+    font-size: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff; /* Set text color */
+    position: relative;
+}
+
+/* Change link color on hover */
+nav a:hover {
+    color: #f6f6f6; /* Change to your desired hover color */
+    text-decoration: none;
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px; /* Adjust the thickness of the underline as needed */
+    background-color: #f6f6f6; /* Color of the underline */
+    transform: scaleX(0); /* Initially, set the scaleX to 0 to hide the underline */
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out; /* Add a smooth transition effect */
+}
+
+/* Expand the underline on hover */
+nav a:hover::before {
+    transform: scaleX(1); /* Fully expand the underline on hover */
+}
+
+nav {
+    margin-left: auto;
+}
+
+.name-container {
+    position: sticky;
+    top: 0;
+    left: 10%;
+    font-size: 48px; /* Adjust the font size as needed */
+    font-family: 'Cabin', sans-serif;
+    color: #ffffff; /* Text color */
+    letter-spacing: 15px;
+    z-index: 1;
+    transform: translateX(5%);
+    transition: top .3s ease-in-out;
+}
+
+.name-sticky {
+    top: 40%; /* Set the sticky top position to 40% */
+    left: 10%;
+    transform: translateX(5%);
+}
+
+.new-section {
+    height: 100vh; /* Set a fixed height for the scrolling section */
+    overflow-y: scroll; /* Enable vertical scrolling */
+}
+
+.new-content {
+    background-color: #ffffff; /* White background for new content */
+    position: relative;
+    z-index: 5;
+    padding: 20px; /* Add padding to the new content area */
+    /* Add more styles for your new content as needed */
+    color: #777;
+    letter-spacing: 8px;
+    box-sizing: border-box;
+}
+
+.about-me {
+    color: #777;
+    letter-spacing: 2px;
+    line-height: 25px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.portfolio-pic {
+    text-align: right;
+    color: #777;
+    letter-spacing: 2px;
+    line-height: 25px;
+    background-color: #fff; /* White background for PORTFOLIO */
+    padding: 20px; /* Add padding to the PORTFOLIO section */
+    box-sizing: border-box;
+    margin-top: 200px;
+}
+
+.portfolio-images {
+    display: flex; /* Use flexbox to arrange children side by side */
+    justify-content: space-between; /* Space out the images */
+    flex-wrap: wrap; /* Allow the items to wrap to the next line if there's not enough space */
+}
+
+.portfolio-images li {
+    margin: 10px; /* Add some margin for spacing */
+}
+
+.portfolio-images img {
+    width: 100%;
+    max-width: 250px;  /* Adjust based on how big you want the images to be */
+    border: 1px solid #ddd; /* Optional border */
+}
+
+.contact-me {
+    color: #777;
+    letter-spacing: 2px;
+    line-height: 25px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 200px;
+}
