@@ -34,3 +34,21 @@ var span = document.getElementsByClassName("close")[0];
 span.onclick = function() { 
     modal.style.display = "none";
 }
+
+function reveal() {
+    var reveals = document.querySelectorAll('.fade-in-element');
+
+    for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 350; // Adjust as needed
+
+        if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add('visible');
+        } else {
+            reveals[i].classList.remove('visible');
+        }
+    }
+}
+
+window.addEventListener('scroll', reveal);
