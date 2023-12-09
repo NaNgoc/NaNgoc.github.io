@@ -1,28 +1,35 @@
 body {
-    background: linear-gradient(90deg, #71abed, #f7c1bb, #fbdfaf);
+    background-image: url('Night.jpeg'); /* Replace with your image path */
+    background-size: cover; /* Cover the entire viewport */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-attachment: fixed; /* Keep the image fixed during scrolling */
+    background-position: center; /* Center the image */
     margin: 0; /* Reset default margin */
+    padding: 0;
     font-family: 'Cabin', sans-serif;
 }
 
 header {
-    background: linear-gradient(90deg, #71abed, #f7c1bb, #fbdfaf);
-    display: flex;
-    justify-content: space-between;
-    align-items: center; /* Vertically center items within the header */
-    padding: 10px; /* Add padding to give space around the navigation */
     position: sticky; /* Make header sticky */
     top: 0; /* Stick to the top of the viewport */
-    z-index: 1000; /* Ensure header is above all content */
+    z-index: 5;
 }
 
 html {
     scroll-behavior: smooth;
 }
 
+h2 {
+    color: #777;
+    letter-spacing: 2px;
+    line-height: 25px;
+    padding: 20px;
+}
+
 nav ul {
     list-style-type: none;
     padding: 0;
-    margin: 0;
+    margin-left: auto;
     display: flex; /* Make the navigation items horizontal */
 }
 
@@ -36,29 +43,30 @@ nav a {
     text-decoration: none;
     color: #fff; /* Set text color */
     position: relative;
+    display: inline-block; /* Ensures the pseudo-element aligns correctly */
 }
 
-/* Change link color on hover */
-nav a:hover {
-    color: #f6f6f6; /* Change to your desired hover color */
-    text-decoration: none;
+nav .navbar-nav .nav-link {
+    position: relative;
+    display: inline-block; /* Ensures the pseudo-element aligns correctly */
 }
 
-nav a::before {
+/* The underline */
+nav .navbar-nav .nav-link::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: 7px; /* Adjust based on the desired distance from the text */
     left: 0;
     width: 100%;
-    height: 2px; /* Adjust the thickness of the underline as needed */
-    background-color: #f6f6f6; /* Color of the underline */
-    transform: scaleX(0); /* Initially, set the scaleX to 0 to hide the underline */
+    height: 2px; /* Thickness of the underline */
+    background-color: #777; /* Color of the underline */
+    transform: scaleX(0); /* Start with no underline */
     transform-origin: left;
-    transition: transform 0.3s ease-in-out; /* Add a smooth transition effect */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for the underline */
 }
 
 /* Expand the underline on hover */
-nav a:hover::before {
+nav .navbar-nav .nav-link:hover::after {
     transform: scaleX(1); /* Fully expand the underline on hover */
 }
 
@@ -68,7 +76,7 @@ nav {
 
 .name-container {
     position: sticky;
-    top: 0;
+    top: 20%;
     left: 10%;
     font-size: 48px; /* Adjust the font size as needed */
     font-family: 'Cabin', sans-serif;
@@ -76,11 +84,22 @@ nav {
     letter-spacing: 15px;
     z-index: 1;
     transform: translateX(5%);
-    transition: top .3s ease-in-out;
+    transition: top .8s ease-in-out;
+}
+
+.portfolio-name-container {
+    position: sticky;
+    font-size: 48px; /* Adjust the font size as needed */
+    font-family: 'Cabin', sans-serif;
+    color: #ffffff; /* Text color */
+    letter-spacing: 5px;
+    z-index: 0;
+    top: 40%;
+    margin-left: 5%;
 }
 
 .name-sticky {
-    top: 40%; /* Set the sticky top position to 40% */
+    top: 60%; /* Set the sticky top position to 40% */
     left: 10%;
     transform: translateX(5%);
 }
@@ -93,7 +112,20 @@ nav {
 .new-content {
     background-color: #ffffff; /* White background for new content */
     position: relative;
-    z-index: 5;
+    z-index: 1;
+    padding: 20px; /* Add padding to the new content area */
+    /* Add more styles for your new content as needed */
+    color: #777;
+    letter-spacing: 8px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center; /* Vertically align items in the middle */
+    justify-content: space-between; /* Space out the items */
+}
+
+.scroll-section {
+    background-color: #ffffff; /* White background for new content */
+    z-index: 1;
     padding: 20px; /* Add padding to the new content area */
     /* Add more styles for your new content as needed */
     color: #777;
@@ -109,38 +141,102 @@ nav {
     box-sizing: border-box;
 }
 
-.portfolio-pic {
-    text-align: right;
-    color: #777;
-    letter-spacing: 2px;
-    line-height: 25px;
-    background-color: #fff; /* White background for PORTFOLIO */
-    padding: 20px; /* Add padding to the PORTFOLIO section */
-    box-sizing: border-box;
-    margin-top: 200px;
+.picture {
+    margin-right: 20%;
 }
 
-.portfolio-images {
-    display: flex; /* Use flexbox to arrange children side by side */
-    justify-content: space-between; /* Space out the images */
-    flex-wrap: wrap; /* Allow the items to wrap to the next line if there's not enough space */
+.art-section{
+    text-align: center;
 }
 
-.portfolio-images li {
-    margin: 10px; /* Add some margin for spacing */
+.contact-title {
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
-.portfolio-images img {
-    width: 100%;
-    max-width: 250px;  /* Adjust based on how big you want the images to be */
-    border: 1px solid #ddd; /* Optional border */
-}
-
-.contact-me {
+.contact-section {
     color: #777;
     letter-spacing: 2px;
     line-height: 25px;
     padding: 20px;
     box-sizing: border-box;
-    margin-top: 200px;
+    text-align: left;
+}
+
+.image-size-1 img {
+    height: 100%;
+    max-height: 500px;  /* Adjust based on how big you want the images to be */
+    transform: translateX(50px);
+}
+
+.image-size-2 img {
+    height: 100%;
+    max-height: 500px;  /* Adjust based on how big you want the images to be */
+    transform: translateX(50px);
+}
+
+.image-size-3 img {
+    height: 100%;
+    max-height: 500px;
+    transform: translateX(-50px);
+}
+
+.image-size-4 img {
+    height: 100%;
+    max-height: 500px;
+    transform: translateX(-15px);
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: absolute; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff; /* White text color */
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #fff; /* White background */
+    border-radius: 50%;
+    padding: 10px;
+    border: 2px solid #fff; /* White border */
+}
+
+.close:hover, .close:focus {
+    color: #000; /* Color change for hover state for visibility */
+    background-color: #fff;
+    border: 2px solid #000;
+}
+
+/* Add Animation */
+.modal-content, .close {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
 }
